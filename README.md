@@ -1,68 +1,89 @@
-# SpendWise Backend API
+# SpendWise - Backend API
 
-SpendWise is a simple backend learning project built using Node.js, Express, and MongoDB. It allows users to register, login using JWT authentication, and perform basic CRUD operations on their own financial transaction records.
+SpendWise is a backend application designed to help beginner developers learn how to build secure REST APIs using Node.js, Express, MongoDB, and JWT authentication. It provides a simple and practical backend project to learn CRUD operations and understand how protected routes work using middleware.
 
-## 🚀 Technologies Used
-* **Node.js & Express.js:** Server and API framework
-* **MongoDB & Mongoose:** Database and Object Data Modeling (ODM)
-* **JWT (JSON Web Token):** Secure user authentication
-* **Bcrypt.js:** Password hashing
+## 🚀 Features
+* **User Authentication:** User Registration and Login with JWT authentication.
+* **Data Management:** CRUD operations (Create, Read, Update, Delete) on user data.
+* **Security:** JWT middleware is used to protect routes, ensuring each user can access only their own data.
+* **Database Integration:** System stores user and record data in MongoDB using Mongoose.
+
+## 🛠️ Technology Stack
+* **Runtime:** Node.js
+* **Framework:** Express.js
+* **Database:** MongoDB & Mongoose
+* **Security:** JSON Web Token (JWT) & bcryptjs
+* **Configuration:** dotenv, cors
 
 ## 📁 Project Structure
-```text
-spendwise/
-├── config/           # Database connection setup
-├── controllers/      # Business logic for routes
-├── middleware/       # JWT authentication protection
-├── models/           # Mongoose schemas (User, Transaction)
-├── routes/           # Express API endpoints
-├── .env              # Environment variables (ignored in git)
-├── server.js         # Entry point of the application
-└── package.json      # Project dependencies
-⚙️ Setup and Installation
-Clone the repository (if using Git):
+The project uses a clean folder structure to teach best practices:
 
-Bash
-git clone <your-repo-url>
-cd spendwise
-Install dependencies:
+    spendwise/
+    ├── config/           # Database connection setup
+    ├── controllers/      # Business logic for auth and CRUD
+    ├── middleware/       # JWT verification and request protection
+    ├── models/           # Mongoose schemas for User and Transaction
+    ├── routes/           # API endpoints for auth and CRUD operations
+    ├── .env              # Environment variables
+    ├── server.js         # Entry point of the application
+    └── package.json      # Project dependencies and scripts
 
-Bash
-npm install
-Set up Environment Variables:
-Create a .env file in the root directory and add the following:
 
-Plaintext
-PORT=5000
-MONGO_URI=your_mongodb_atlas_connection_string
-JWT_SECRET=your_super_secret_jwt_key
-Run the server:
+## ⚙️ Getting Started
 
-Bash
-npm run dev
-The server should start on http://localhost:5000 and connect to MongoDB.
+### Prerequisites
+Make sure you have the following installed on your machine:
+* Node.js
+* MongoDB (Local or Atlas)
+* Git
 
-🔗 API Endpoints
-Authentication APIs (Public)
-Register User: POST /api/auth/register
+### Installation & Setup
 
-Body: { "name": "John", "email": "john@test.com", "password": "password123" }
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/balafromtn/NM-Project-Spendwise.git
+   cd NM-Project-Spendwise
+   ```
 
-Login User: POST /api/auth/login
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-Body: { "email": "john@test.com", "password": "password123" }
+3. **Configure Environment Variables:**
+   Create a `.env` file in the root directory and add your specific credentials:
+   ```text
+   PORT=5000
+   MONGO_URI=your_mongodb_connection_string
+   JWT_SECRET=your_secret_jwt_key
+   ```
 
-Returns a JWT Token to be used in protected routes.
+4. **Start the server:**
+   ```bash
+   npm run dev
+   ```
+   The server will start on `http://localhost:5000` and you should see a "MongoDB Connected" message in your terminal.
 
-Transaction APIs (Protected - Requires JWT Token)
-Add the token to your request headers as: Authorization: Bearer <your_token>
+## 🔗 API Endpoints
 
-Create Record: POST /api/transactions
+You can easily test these APIs using Postman or Thunder Client.
 
-Body: { "amount": 500, "type": "expense", "category": "Food", "note": "Lunch" }
+### Authentication (Public)
+| Method | Endpoint | Description | Body Required |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/api/auth/register` | Register a new user | `name`, `email`, `password` |
+| `POST` | `/api/auth/login` | Login and get JWT token | `email`, `password` |
 
-Get All Records: GET /api/transactions
+### Transactions (Protected)
+*Note: All protected routes require a valid JWT token in the `Authorization` header as a `Bearer Token`.*
 
-Update Record: PUT /api/transactions/:id
+| Method | Endpoint | Description | Body Required |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/api/transactions` | Create a new record | `amount`, `type`, `category`, `note` |
+| `GET` | `/api/transactions` | Get all records for the logged-in user | None |
+| `PUT` | `/api/transactions/:id` | Update a specific record | fields to update |
+| `DELETE` | `/api/transactions/:id` | Delete a specific record | None |
 
-Delete Record: DELETE /api/transactions/:id
+## 👨‍💻 Author
+**Balaji**
+* GitHub: [@balafromtn](https://github.com/balafromtn)
