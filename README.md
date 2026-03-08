@@ -86,8 +86,5 @@ You can easily test these APIs using Postman or Thunder Client.
 
 ## 👨‍💻 Author
 **Balaji**
-<<<<<<< HEAD
+
 * GitHub: [@balafromtn](https://github.com/balafromtn)
-=======
-* GitHub: [@balafromtn](https://github.com/balafromtn)
->>>>>>> c0d5ed6 (updated READ.md and added Documentation)
