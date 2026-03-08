@@ -1,4 +1,4 @@
-# SpendWise - Backend API
+# SpendWise
 
 SpendWise is a backend application designed to help beginner developers learn how to build secure REST APIs using Node.js, Express, MongoDB, and JWT authentication. It provides a simple and practical backend project to learn CRUD operations and understand how protected routes work using middleware.
 
@@ -86,4 +86,8 @@ You can easily test these APIs using Postman or Thunder Client.
 
 ## 👨‍💻 Author
 **Balaji**
+<<<<<<< HEAD
 * GitHub: [@balafromtn](https://github.com/balafromtn)
+=======
+* GitHub: [@balafromtn](https://github.com/balafromtn)
+>>>>>>> c0d5ed6 (updated READ.md and added Documentation)
